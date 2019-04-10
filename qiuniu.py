@@ -14,7 +14,7 @@ class Qiniu:
         self.client = Auth(AK, SK)
         self.__key = str(int(time.time())) + '.txt'
         self.__bucket = BUCKET
-        self.__token = self.client.upload_token(self.__bucket, self.__key)
+        self.__token = self.client.upload_token(self.__bucket, self.__key, 60)
 
     def upload(self, filepath):
         ret, info = put_file(self.__token, self.__key, filepath)
