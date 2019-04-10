@@ -12,13 +12,12 @@ class Qiniu:
 
     def __init__(self):
         self.client = Auth(AK, SK)
+        self.__key = str(int(time.time())) + '.txt'
         self.__bucket = BUCKET
-        self.__token = ''
+        self.__token = self.client.upload_token(self.__bucket, self.__key)
 
     def upload(self, filepath):
-        key = str(int(time.time())) + '.txt'
-        self.__token = self.client.upload_token(self.__bucket, key)
-        ret, info = put_file(self.__token, key, filepath)
+        ret, info = put_file(self.__token, self.__key, filepath)
         assert info.status_code == 200
         os.remove('test.txt')
 
