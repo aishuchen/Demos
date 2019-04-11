@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jQuery.js"></script>
+</head>
+<body>
+
+<div id="btn-container" style="position: fixed;right: 8px; bottom: 10px">
+    <div style="width: 100px;height: 300px">
+        aaa
+    </div>
+    <div style="right:5px;bottom:10px; width: 50px">
+        <button>点我</button>
+        <br>
+        <button>回到顶部</button>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        console.log(this);
+        console.log(window.innerHeight);
+        console.log(window.innerWidth);
+    })
+</script>
+</body>
+</html>
